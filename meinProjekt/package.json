@@ -1,0 +1,27 @@
+{
+  "name": "meinProjekt",
+  "version": "1.0.0",
+  "description": "Grundgerüst der PWA",
+  "main": "index.js",
+  "scripts": {
+    "start": "http-server -c-1"
+  },
+  "keywords": [
+    "pwa",
+    "progressive",
+    "inspiration",
+    "web",
+    "app",
+    "ikt",
+    "htw",
+    "fiw"
+  ],
+  "author": "A. Allieu",
+  "license": "ISC",
+  "devDependencies": {
+    "http-server": "^14.1.0"
+  },
+  "dependencies": {
+    "pwa-asset-generator": "^6.3.1"
+  }
+}

@@ -1,0 +1,28 @@
+
+body{
+  background-color: #32273c;
+  background-image: url(../images/pexelsback.jpg);
+  background-position: center;
+  background-size:77cm
+}
+main{
+  padding-top: 1cm;
+}
+
+#svbtn{
+ padding-top: 5%;
+}
+
+.bg-custom {
+  background-color: #180b24f5;
+}
+
+
+
+.text-center {
+  text-align: center;
+}
+
+.drawer-option {
+  padding: 16px;
+}
