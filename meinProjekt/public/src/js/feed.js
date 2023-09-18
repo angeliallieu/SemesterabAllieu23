@@ -46,12 +46,27 @@ function createCard() {
     let capturedMomentsArea = document.getElementById('capturedMomentsArea'); // Hier den richtigen Container auswählen
     capturedMomentsArea.appendChild(cardWrapper);
   }
+
   
-  fetch('https://jsonplaceholder.typicode.com/posts/1')
+let networkDataReceived = false;
+
+fetch('http://localhost:3000/posts')
     .then((res) => {
-      return res.json();
+        return res.json();
     })
     .then((data) => {
-      createCard();
+        networkDataReceived = true;
+        console.log('From backend ...', data);
+        updateUI(data);
     });
+
+if('indexedDB' in window) {
+    readAllData('posts')
+        .then( data => {
+            if(!networkDataReceived) {
+                console.log('From cache ...', data);
+                updateUI(data);
+            }
+        })
+}
   
