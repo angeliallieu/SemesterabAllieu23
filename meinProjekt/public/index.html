@@ -12,8 +12,10 @@
     <title>Inspira!</title>
     <link rel="manifest" href="\manifest.json">
     <script src="\src\js\idb.js"></script>
-    <script src="/src/js/db.js"></script>
+    <script src="\src\js\db.js"></script>
     <script src="\src\js\feed.js"></script>
+    <script src="\src\js\capture.js"></script>
+    
   </head>
   
   <body>
@@ -67,7 +69,7 @@
       }
     </script>
 
-    <script>
+    <!-- <script>
       navigator.serviceWorker.register("/sw.js").then(registration => {
     console.log("success!");
     if (registration.installing) {
@@ -76,9 +78,9 @@
     }, err => {
     console.error("Installing the worker failed!", err);
     });
-    </script>
+    </script> -->
 
-    <script>
+    <!-- <script>
       // Check that service workers are supported
       if ('serviceWorker' in navigator) {
       // Use the window load event to keep the page load performant
@@ -91,7 +93,7 @@
       });
       }else{
         console.log('Service Worker failed again:');
-      }
+      } -->
       
   </script>
   

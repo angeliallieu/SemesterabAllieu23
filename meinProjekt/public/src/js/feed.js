@@ -12,17 +12,17 @@ let locationValue = '';
 let imageURI = '';
 
 
-function openCapturePostModal() {
-  captureArea.style.display = 'block';
-}
+// function openCapturePostModal() {
+//   captureArea.style.display = 'block';
+// }
 
-function closeCreatePostModal() {
-  createPostArea.style.display = 'none';
-}
+// function closeCreatePostModal() {
+//   createPostArea.style.display = 'none';
+// }
 
-createMomentButton.addEventListener('click', openCreatePostModal);
+// createMomentButton.addEventListener('click', openCreatePostModal);
 
-closeCreatePostModalButton.addEventListener('click', closeCreatePostModal);
+// closeCreatePostModalButton.addEventListener('click', closeCreatePostModal);
 
 function createCard(card) {
     let cardWrapper = document.createElement('div');
@@ -135,4 +135,5 @@ form.addEventListener('submit', event => {
 
     sendDataToBackend();
 });
+
 

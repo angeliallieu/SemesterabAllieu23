@@ -1,30 +1,7 @@
-// importScripts(
-//     'https://storage.googleapis.com/workbox-cdn/releases/6.4.1/workbox-sw.js'
-//   );
-  
-//   workbox.routing.registerRoute(
-//       ({request}) => request.destination === 'image',
-//       new workbox.strategies.NetworkFirst()     // NetworkFirst() vs CacheFirst()
-//   )
-
-
-// self.addEventListener('install', event => {
-//     console.log('service worker --> installing ...', event);
-// })
-
-// self.addEventListener('activate', event => {
-//     console.log('service worker --> activating ...', event);
-//     return self.clients.claim();
-// })
-
-// self.addEventListener('fetch', event => {
-//     event.respondWith(fetch(event.request));
-//     console.log('service worker --> fetching ...', event);
-// })
 importScripts('/src/js/idb.js');
 importScripts('/src/js/db.js');
 
-const CACHE_VERSION = 4;
+const CACHE_VERSION = 31;
 const CURRENT_STATIC_CACHE = 'static-v'+CACHE_VERSION;
 const CURRENT_DYNAMIC_CACHE = 'dynamic-v'+CACHE_VERSION;
 
@@ -45,6 +22,35 @@ const STATIC_FILES = [
     '/src/images/pexelsback.jpg',
     '/src/images/icons/inspiralogo.png'
 ];
+
+
+
+self.addEventListener('install', event => {
+    console.log('service worker --> installing ...', event);
+    event.waitUntil(
+        caches.open(CURRENT_STATIC_CACHE)
+            .then( cache => {
+                console.log('Service-Worker-Cache erzeugt und offen');
+                cache.addAll(STATIC_FILES);
+            })
+    );
+})
+
+self.addEventListener('activate', event => {
+    console.log('service worker --> activating ...', event);
+    event.waitUntil(
+        caches.keys()
+            .then( keyList => {
+                return Promise.all(keyList.map( key => {
+                    if(key !== CURRENT_STATIC_CACHE && key !== CURRENT_DYNAMIC_CACHE) {
+                        console.log('service worker --> old cache removed :', key);
+                        return caches.delete(key);
+                    }
+                }))
+            })
+    );
+    return self.clients.claim();
+})
 
 self.addEventListener('fetch', event => {
     // check if request is made by chrome extensions or web page
@@ -91,46 +97,6 @@ self.addEventListener('fetch', event => {
     )}
 })
 
-self.addEventListener('install', event => {
-    console.log('service worker --> installing ...', event);
-    event.waitUntil(
-        caches.open(CURRENT_STATIC_CACHE)
-            .then( cache => {
-                console.log('Service-Worker-Cache erzeugt und offen');
-                cache.addAll(STATIC_FILES);
-            })
-    );
-})
-
-self.addEventListener('activate', event => {
-    console.log('service worker --> activating ...', event);
-    event.waitUntil(
-        caches.keys()
-            .then( keyList => {
-                return Promise.all(keyList.map( key => {
-                    if(key !== CURRENT_STATIC_CACHE && key !== CURRENT_DYNAMIC_CACHE) {
-                        console.log('service worker --> old cache removed :', key);
-                        return caches.delete(key);
-                    }
-                }))
-            })
-    );
-    return self.clients.claim();
-})
-
-const db = idb.openDB('posts-store', 1, {
-    upgrade(db) {
-        // Create a store of objects
-        const store = db.createObjectStore('posts', {
-            // The '_id' property of the object will be the key.
-            keyPath: '_id',
-            // If it isn't explicitly set, create a value by auto incrementing.
-            autoIncrement: true,
-        });
-        // Create an index on the '_id' property of the objects.
-        store.createIndex('_id', '_id');
-    },
-});
 
 
 
