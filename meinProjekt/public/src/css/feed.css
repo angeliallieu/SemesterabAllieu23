@@ -4,6 +4,14 @@ body{
   background-position: center;
   background-size:77cm
 }
+
+/* app{
+  background-color: #32273c;
+  background-image: url(../images/pexelsback.jpg);
+  background-position: center;
+  background-size:77cm
+
+} */
 main{
   padding-top: 1cm;
 }
@@ -23,4 +31,69 @@ main{
 
 .drawer-option {
   padding: 16px;
+}
+
+.button-container {
+  display: flex; /* Verwende Flexbox für das Layout */
+  align-items: center; /* Zentriere die Elemente vertikal */
+}
+
+/* Optional: Füge Platz zwischen den Elementen hinzu */
+.mdl-button {
+  margin-right: 10px; /* Zum Beispiel 10px Abstand zwischen dem Button und dem Div */
+}
+
+#pick-image{
+  margin-left: 50%;
+}
+
+.notessec{
+  margin-top: 10px;
+}
+
+#pick-image {
+  color: white;
+}
+
+
+#create-post {
+  z-index: 1001;
+  position: fixed;
+  width: 100%;
+  min-height: 100vh;
+  overflow-y: scroll;
+  bottom: 0;
+  top: 56px;
+  background-color: #32273c;
+  background-image: url(../images/pexelsback.jpg);
+  background-position: center;
+  background-size:77cm;
+  text-align: center;
+  /* visibility: hidden; */
+
+  transform: translateY(100vH);
+  transition: transform 0.3s;
+}
+
+#create-post video, #create-post canvas {
+  width: 512px;
+  max-width: 100%;
+  display: none;
+  margin: auto;
+}
+
+#create-post #pick-image {
+  display: none;
+}
+
+#create-post #capture-btn {
+  margin: 10px auto;
+}
+
+.mdl-spinner {
+  margin: auto;
+}
+
+#close-create-post-modal-btn{
+  margin-top: 10px;
 }
