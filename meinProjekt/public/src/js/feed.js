@@ -191,34 +191,36 @@ function createCard(card) {
     small.textContent = 'Date of Upload, ' + card.location;
     cardDate.appendChild(small);
     cardBody.appendChild(cardDate);
-    cardText.style.textAlign = 'center'; // Ändern Sie den Textausrichtungsstil
+    cardText.style.textAlign = 'left'; // Ändern Sie den Textausrichtungsstil
     cardWrapper.appendChild(cardBody);
-    // componentHandler.upgradeElement(cardWrapper);
+    componentHandler.upgradeElement(cardWrapper);
     let capturedMomentsArea = document.getElementById('capturedMomentsArea'); // Hier den richtigen Container auswählen
     capturedMomentsArea.appendChild(cardWrapper);
   }
 
   
 
-fetch('http://localhost:4000/posts')
-    .then((res) => {
-        return res.json();
-    })
-    .then((data) => {
-        networkDataReceived = true;
-        console.log('From backend ...', data);
-        updateUI(data);
-    });
+  fetch('http://localhost:4000/posts')
+  .then((res) => {
+      return res.json();
+  })
+  .then((data) => {
+      networkDataReceived = true;
+      console.log('From backend ...', data);
+      updateUI(data);
+  })
+  .catch((err) => {
+      if ('indexedDB' in window) {
+          readAllData('posts')
+              .then((data) => {
+                  if (!networkDataReceived) {
+                      console.log('From cache ...', data);
+                      updateUI(data);
+                  }
+              });
+      }
+  });
 
-if('indexedDB' in window) {
-    readAllData('posts')
-        .then( data => {
-            if(!networkDataReceived) {
-                console.log('From cache ...', data);
-                updateUI(data);
-            }
-        })
-}
 
 function updateUI(data) {
     for(let card of data)
@@ -229,8 +231,8 @@ function updateUI(data) {
 
 function sendDataToBackend() {
     const formData = new FormData();
-    formData.append('sdescr', sdescrInput);
-    formData.append('notes', notesInput);
+    formData.append('sdescr', sdescrValue);
+    formData.append('notes', notesValue);
     formData.append('location', locationValue);
     formData.append('file', file);
 
@@ -276,6 +278,8 @@ form.addEventListener('submit', event => {
 
     sendDataToBackend();
 });
+
+
 
 
 imagePicker.addEventListener('change', event => {

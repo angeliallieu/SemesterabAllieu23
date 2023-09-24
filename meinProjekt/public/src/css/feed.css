@@ -26,9 +26,12 @@ main{
 
 
 .text-center {
-  text-align: center;
+  text-align: left;
 }
 
+/* .text-light {
+  text-align: left;
+} */
 .drawer-option {
   padding: 16px;
 }
@@ -68,7 +71,7 @@ main{
   background-image: url(../images/pexelsback.jpg);
   background-position: center;
   background-size:77cm;
-  text-align: center;
+  text-align: left;
   /* visibility: hidden; */
 
   transform: translateY(100vH);
