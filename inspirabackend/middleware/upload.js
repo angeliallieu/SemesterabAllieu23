@@ -3,14 +3,14 @@ const {
     GridFsStorage 
 } = require('multer-gridfs-storage');
 const mongoose = require('mongoose');
-const posts = require('../models/posts');
+//const posts = require('../models/posts');
 // const mongoose = require('mongoose');
 require('dotenv').config();
-const bucketName = 'posts';
+//const bucketName = 'posts';
 
 //const credentials = process.env.PATH_TO_PEM
 //const mongoose = require('mongoose');
-const db = mongoose.connection;
+//const db = mongoose.connection;
 
 
 

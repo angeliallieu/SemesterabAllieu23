@@ -1,7 +1,7 @@
 const express = require('express');
 const postRoutes = require('./routes/post.routes');
-// const uploadRoutes = require('./routes/upload.routes');
-// const downloadRoutes = require('./routes/download.routes');
+const deleteRoutes = require('./routes/delete.routes');
+const downloadRoutes = require('./routes/download.routes');
 require('dotenv').config();
 const cors = require('cors')
 
@@ -15,8 +15,8 @@ app.use(express.json());
 // enable cors for all requests
 app.use(cors());
 app.use('/posts', postRoutes);
-// app.use('/upload', uploadRoutes);
-// app.use('/download', downloadRoutes);
+app.use('/delete', deleteRoutes);
+app.use('/download', downloadRoutes);
 
 app.listen(PORT, (error) => {
     if (error) {
