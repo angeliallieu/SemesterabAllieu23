@@ -6,11 +6,19 @@ let form = document.querySelector('form');
 let sdescrInput = document.querySelector('#sdescr');
 let notesInput = document.querySelector('#notes');
 let locationInput = document.querySelector('#location');
+let videoPlayer = document.querySelector('#player');
+let canvasElement = document.querySelector('#canvas');
+let captureButton = document.querySelector('#capture-btn');
+let imagePicker = document.querySelector('#image-picker');
+let imagePickerArea = document.querySelector('#pick-image');
 let file = null;
 let titleValue = '';
 let locationValue = '';
 let imageURI = '';
 
+function initializeMedia() {
+
+}
 
 // function openCapturePostModal() {
 //   captureArea.style.display = 'block';
@@ -20,7 +28,7 @@ let imageURI = '';
 //   createPostArea.style.display = 'none';
 // }
 
-// createMomentButton.addEventListener('click', openCreatePostModal);
+createMomentButton.addEventListener('click', openCreatePostModal);
 
 // closeCreatePostModalButton.addEventListener('click', closeCreatePostModal);
 
@@ -46,7 +54,7 @@ function createCard(card) {
     cardDate.className = 'card-text';
     let small = document.createElement('small');
     small.className = 'text-muted';
-    small.textContent = 'Date of Upload' + card.location;
+    small.textContent = 'Date of Upload, ' + card.location;
     cardDate.appendChild(small);
     cardBody.appendChild(cardDate);
     cardText.style.textAlign = 'center'; // Ändern Sie den Textausrichtungsstil

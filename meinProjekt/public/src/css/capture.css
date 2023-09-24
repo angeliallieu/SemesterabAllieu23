@@ -26,3 +26,25 @@ main{
 .drawer-option {
   padding: 16px;
 }
+
+.button-container {
+  display: flex; /* Verwende Flexbox für das Layout */
+  align-items: center; /* Zentriere die Elemente vertikal */
+}
+
+/* Optional: Füge Platz zwischen den Elementen hinzu */
+.mdl-button {
+  margin-right: 10px; /* Zum Beispiel 10px Abstand zwischen dem Button und dem Div */
+}
+
+#pick-image{
+  margin-left: 50%;
+}
+
+.notessec{
+  margin-top: 10px;
+}
+
+#pick-image {
+  color: white;
+}
