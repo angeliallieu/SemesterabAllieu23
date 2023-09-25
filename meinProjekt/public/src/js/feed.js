@@ -169,6 +169,7 @@ closeCreatePostModalButton.addEventListener('click', closeCreatePostModal);
 function createCard(card) {
     let cardWrapper = document.createElement('div');
     cardWrapper.className = 'card mb-3'; // Bootstrap-Klasse für Karten mit Abstand
+    
     let cardImage = document.createElement('img');
     cardImage.className = 'card-img-top'; // Bootstrap-Klasse für das Bild oben auf der Karte
     cardImage.src = card.image_id; // Pfad zum Bild
@@ -193,9 +194,8 @@ function createCard(card) {
     cardBody.appendChild(cardDate);
     cardText.style.textAlign = 'left'; // Ändern Sie den Textausrichtungsstil
     cardWrapper.appendChild(cardBody);
-    componentHandler.upgradeElement(cardWrapper);
-    let capturedMomentsArea = document.getElementById('capturedMomentsArea'); // Hier den richtigen Container auswählen
-    capturedMomentsArea.appendChild(cardWrapper);
+    // componentHandler.upgradeElement(cardWrapper);
+    sharedMomentsArea.appendChild(cardWrapper);
   }
 
   
@@ -223,9 +223,11 @@ function createCard(card) {
 
 
 function updateUI(data) {
+    console.log("Data:",data)
     for(let card of data)
     {
-       createCard(card);
+        createCard(card);
+        console.log('Post created');
     }
 }
 

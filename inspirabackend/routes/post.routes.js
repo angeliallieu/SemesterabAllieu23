@@ -1,7 +1,7 @@
 const express = require('express');
-const router = express.Router();
-const Post = require('../models/posts');
-const upload = require('../middleware/upload');
+const router =  express.Router();
+const Post =  require('../models/posts');
+const upload =  require('../middleware/upload');
 // const upload = multer({ dest: '../middleware/upload'});
 const multer = require('multer');
 const mongoose = require('mongoose');

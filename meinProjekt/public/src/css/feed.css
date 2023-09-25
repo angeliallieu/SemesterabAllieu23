@@ -58,6 +58,9 @@ main{
   color: white;
 }
 
+.mdl-spinner {
+  margin: auto;
+}
 
 #create-post {
   z-index: 1001;
@@ -93,9 +96,7 @@ main{
   margin: 10px auto;
 }
 
-/* #create-post #pick-image {
-  display: none;
-} */
+
 
 #create-post #pick-image, #create-post #location-loader {
   display: none;
@@ -105,6 +106,8 @@ main{
   margin: 10px auto;
 }
 
+
+
 .mdl-spinner {
   margin: auto;
 }
@@ -112,5 +115,21 @@ main{
 #close-create-post-modal-btn{
   margin-top: 10px;
 }
+
+.shared-moments {
+  margin: 10px auto;
+}
+
+.main-image {
+  max-width: 100%;
+  margin: auto;
+  display: block;
+}
+
+.input-section {
+  display: block;
+  margin: 10px auto;
+}
+
 
 
