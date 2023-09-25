@@ -62,11 +62,26 @@ router.post('/', upload.single('file'), async (req, res) => {
   });
 
 // GET all posts
+// router.get('/', async(req, res) => {
+//     const allPosts = await Post.find();
+//     res.status(200);
+//     res.send(allPosts);
+// });
+
 router.get('/', async(req, res) => {
-    const allPosts = await Post.find();
-    res.status(200);
-    res.send(allPosts);
+    
+    getAllPosts()
+    .then( (posts) => {
+        res.send(posts);
+    })
+    .catch( () => {
+        res.status(404);
+        res.send({
+            error: "Post do not exist!"
+        });
+    })
 });
+
 
 /* ----------------- GET ---------------------------- */
 
