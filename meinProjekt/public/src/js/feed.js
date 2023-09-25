@@ -168,12 +168,15 @@ closeCreatePostModalButton.addEventListener('click', closeCreatePostModal);
 
 function createCard(card) {
     let cardWrapper = document.createElement('div');
-    cardWrapper.className = 'card mb-3'; // Bootstrap-Klasse für Karten mit Abstand
-    
+    cardWrapper.className = 'card '; // Bootstrap-Klasse für Karten mit Abstand
+    cardWrapper.style.maxWidth = '450px';
     let cardImage = document.createElement('img');
-    cardImage.className = 'card-img-top'; // Bootstrap-Klasse für das Bild oben auf der Karte
+    cardImage.className = 'card-img-top img-fluid'; // Bootstrap-Klasse für das Bild oben auf der Karte
+    //cardImage.style.width = '100%';
+    cardImage.style.height = '350px';
+    // cardImage.style.objectFit = cover;
     cardImage.src = card.image_id; // Pfad zum Bild
-    cardImage.alt = 'Impression Image'; // Alt-Text für das Bild
+    cardImage.alt = 'Card Image'; // Alt-Text für das Bild
     cardWrapper.appendChild(cardImage);
     let cardBody = document.createElement('div');
     cardBody.className = 'card-body'; // Bootstrap-Klasse für den Kartenkörper
