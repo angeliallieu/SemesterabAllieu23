@@ -172,7 +172,7 @@ function createCard(card) {
     cardWrapper.style.maxWidth = '450px';
     let cardImage = document.createElement('img');
     cardImage.className = 'card-img-top img-fluid'; // Bootstrap-Klasse für das Bild oben auf der Karte
-    //cardImage.style.width = '100%';
+    cardImage.style.width = '100%';
     cardImage.style.height = '350px';
     // cardImage.style.objectFit = cover;
     cardImage.src = card.image_id; // Pfad zum Bild
@@ -192,7 +192,7 @@ function createCard(card) {
     cardDate.className = 'card-text';
     let small = document.createElement('small');
     small.className = 'text-muted';
-    small.textContent = 'Date of Upload, ' + card.location;
+    small.textContent = card.location;
     cardDate.appendChild(small);
     cardBody.appendChild(cardDate);
     cardText.style.textAlign = 'left'; // Ändern Sie den Textausrichtungsstil

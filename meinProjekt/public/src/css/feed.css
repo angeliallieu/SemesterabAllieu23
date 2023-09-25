@@ -2,7 +2,8 @@ body{
   background-color: #32273c;
   background-image: url(../images/pexelsback.jpg);
   background-position: center;
-  background-size:77cm
+  background-size:77cm;
+  padding-top: 56px;
 }
 
 /* app{
@@ -63,6 +64,8 @@ main{
 }
 
 #create-post {
+  margin: 0; /* Rand entfernen */
+  padding: 0; /* Padding entfernen oder anpassen, wie benötigt */
   z-index: 1001;
   position: fixed;
   width: 100%;
@@ -70,8 +73,9 @@ main{
   overflow-y: scroll;
   bottom: 0;
   top: 56px;
+  box-sizing: border-box;
   background-color: #32273c;
-  background-image: url(../images/pexelsback.jpg);
+  /* background-image: url(../images/pexelsback.jpg); */
   background-position: center;
   background-size:77cm;
   text-align: left;
@@ -95,7 +99,6 @@ main{
   display: none;
   margin: 10px auto;
 }
-
 
 
 #create-post #pick-image, #create-post #location-loader {
@@ -156,6 +159,14 @@ main{
     margin-top: 0; 
     padding: 10px;
   }
+
+  @media (max-width: 576px) {
+    .card-img-top, .card {
+        max-width: 500px; /* Maximale Breite auf 350px begrenzen */
+        width: 80%; /* Bild auf 100% der verfügbaren Breite einstellen */
+        height: 10%; /* Automatische Anpassung der Höhe */
+    }
+}
 
 
 

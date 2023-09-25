@@ -30,7 +30,7 @@
     <header>
       <!-- Content here -->
       <!-- Image and text -->
-      <nav class="navbar navbar-light sticky-top bg-custom">
+      <nav class="navbar navbar-light fixed-top bg-custom">
         <div class="container-fluid sticky-top">
           <a class="navbar-brand text-light"  href="#"> <img src="\src\images\icons\inspiralogo.png" width="100" height="34" class="d-inline-block align-top" alt="">
           </a>
@@ -42,9 +42,9 @@
       </nav>
     </header>
 
-    <main>
+    <main class="container-fluid">
       <div id="app" class="app">
-        <div id="create-post">
+        <div id="create-post" class="container-fluid">
           <section id="hero" class="hero">
             <div class="container position-relative">
               <div class="row gy-5" data-aos="fade-in">
@@ -85,14 +85,14 @@
                 <div class="mdl-spinner mdl-js-spinner is-active" id="location-loader"></div>
               </div>
               <div id="map" class="map"></div>
-              <div class="form-check">
+              <!-- <div class="form-check">
                 <input type="checkbox" class="form-check-input" id="Check1">
                 <label class="form-check-label text-light" for="Check1">Add a voice note</label>
               </div>
               <div class="form-group" id="hiddenFieldGroup" style="display: none;" >
                 <label for="hiddenField">Dieses Feld wird angezeigt, wenn die Checkbox aktiviert ist:</label>
                 <input type="text" class="form-control" id="hiddenField">
-              </div>
+              </div> -->
               <div>
                 <button type="submit" id="post-btn" class="btn btn-outline-success btn-lg btn-block">Save</button>
               </div>
