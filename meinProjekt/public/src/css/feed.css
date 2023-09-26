@@ -150,10 +150,8 @@ main{
   }
 
   @media (max-width: 576px) {
-    .card-img-top, .card {
-        max-width: 500px; 
-        width: 80%; 
-        height: 10%; 
+    .card-img-top, .card { 
+        max-width: 80%;
     }
 }
 

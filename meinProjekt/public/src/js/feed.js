@@ -172,7 +172,7 @@ closeCreatePostModalButton.addEventListener('click', closeCreatePostModal);
 function createCard(card) {
     let cardWrapper = document.createElement('div');
     cardWrapper.className = 'card '; // Bootstrap-Klasse für Karten mit Abstand
-    cardWrapper.style.maxWidth = '450px';
+    cardWrapper.style.width = '450px';
     let cardImage = document.createElement('img');
     cardImage.className = 'card-img-top img-fluid'; // Bootstrap-Klasse für das Bild oben auf der Karte
     cardImage.style.width = '100%';
