@@ -9,7 +9,7 @@ Du kannst deinen Gedanken zu der Aufnahmen in **Notes** beschreiben und eien kur
 
 ## Das kann die Inspira-PWA
 - Sie ist **installierbar**, das heißt du kannst sie auch als App auf deinem Endgerät laden und nutzen  
-- Sie läuft auch **offline**, du kannst also Post erstellen, wenn du mal keine Internet hat und deine Momente werden **synchronisiert** sobald du das nächste mal wieder online bist 
+- Sie läuft auch **offline**, du kannst also Post erstellen, wenn du mal kein Internet hast. Deine Momente werden **synchronisiert** sobald du das nächste mal wieder online bist 
 
 
 ## Installation der Anwendung:
@@ -19,6 +19,11 @@ git clone https://github.com/angeliallieu/SemesterabAllieu23
 ```
 **Backend**: inspirabackend <br>
 **Frontend**: meinProjekt <br>
+
+Zu Beginn werden alle Abhängigkeiten mit dem folgenden Befehl einmal installiert:
+```cmd
+npm i
+```
 
 Der **Backend**- und der **Frontend**ordner müssen dann jeweils im eigenen Terminals (am besten über GitBash) geöffnet werden. 
 Für das **Frontend** erfolgt im Terminal die Eingabe: 
