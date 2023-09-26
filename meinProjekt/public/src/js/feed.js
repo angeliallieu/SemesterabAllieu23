@@ -203,6 +203,9 @@ function createCard(card) {
 
   
 
+  let networkDataReceived = false;  //?
+
+
   fetch('http://localhost:4000/posts')
   .then((res) => {
       return res.json();
@@ -281,7 +284,32 @@ form.addEventListener('submit', event => {
     notesValue = notesInput.value;
     locationValue = locationInput.value;
 
-    sendDataToBackend();
+    if('serviceWorker' in navigator && 'SyncManager' in window) {
+        navigator.serviceWorker.ready
+            .then( sw => {
+                let post = {
+                    id: new Date().toISOString(),
+                    sdescr: sdescrValue,
+                    notes: notesValue,
+                    location: locationValue,
+                    image_id: file      // file durch den Foto-Button belegt
+    
+                };
+                console.log('Daten werden wurden gepostet')
+                writeData('sync-posts', post)
+                .then( () => {
+                    console.log('Daten werden syncronisiert')
+                    return sw.sync.register('sync-new-post');
+                })
+                .then( () => {
+                    let snackbarContainer = new MaterialSnackbar(document.querySelector('#confirmation-toast'));
+                    let data = { message: 'Eingaben zum Synchronisieren gespeichert!', timeout: 2000};
+                    snackbarContainer.showSnackbar(data);
+                });
+            });
+    } else {
+            sendDataToBackend();
+    }
 });
 
 

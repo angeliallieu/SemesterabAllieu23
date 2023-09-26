@@ -1,7 +1,7 @@
 importScripts('/src/js/idb.js');
 importScripts('/src/js/db.js');
 
-const CACHE_VERSION = 52;
+const CACHE_VERSION = 62;
 const CURRENT_STATIC_CACHE = 'static-v'+CACHE_VERSION;
 const CURRENT_DYNAMIC_CACHE = 'dynamic-v'+CACHE_VERSION;
 
@@ -11,6 +11,7 @@ const STATIC_FILES = [
     '/capture/index.html',
     '/src/js/capture.js',
     '/src/js/feed.js',
+    '/src/js/idb.js',
     '/src/js/material.min.js',
     '/src/css/capture.css',
     '/src/css/feed.css',
@@ -95,6 +96,44 @@ self.addEventListener('fetch', event => {
                 }
             })
     )}
+})
+
+
+
+self.addEventListener('sync', event => {
+    console.log('service worker --> background syncing ...', event);
+    if(event.tag === 'sync-new-post') {
+        console.log('service worker --> syncing new posts ...');
+        event.waitUntil(
+            readAllData('sync-posts')
+                .then( dataArray => {
+                    for(let data of dataArray) {
+                        console.log('data from IndexedDB', data);
+                        const formData = new FormData();
+                        formData.append('notes', data.notes);
+                        formData.append('sdescr', data.sdescr);
+                        formData.append('location', data.location);
+                        formData.append('file', data.image_id);
+
+                        console.log('formData', formData)
+
+                        fetch('http://localhost:4000/posts', {
+                            method: 'POST',
+                            body: formData
+                        })
+                        .then( response => {
+                            console.log('Data sent to backend ...', response);
+                            if(response.ok) {
+                                deleteOneData('sync-posts', data.id)
+                            }
+                        })
+                        .catch( err => {
+                            console.log('Error while sending data to backend ...', err);
+                        })
+                    }
+                })
+        );
+    }
 })
 
 
