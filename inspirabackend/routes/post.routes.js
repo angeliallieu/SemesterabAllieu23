@@ -2,12 +2,10 @@ const express = require('express');
 const router =  express.Router();
 const Post =  require('../models/posts');
 const upload =  require('../middleware/upload');
-// const upload = multer({ dest: '../middleware/upload'});
 const multer = require('multer');
 const mongoose = require('mongoose');
 require('dotenv').config();
-// const ObjectId = mongoose.Types.ObjectId;
-//db = connection
+
 db = mongoose.connection;
 
 
@@ -61,12 +59,7 @@ router.post('/', upload.single('file'), async (req, res) => {
     }
   });
 
-// GET all posts
-// router.get('/', async(req, res) => {
-//     const allPosts = await Post.find();
-//     res.status(200);
-//     res.send(allPosts);
-// });
+
 
 router.get('/', async(req, res) => {
     
@@ -157,18 +150,7 @@ router.get('/:id', async(req, res) => {
     }
 });
 
-/* ----------------- DELETE ---------------------------- */
-// router.delete('/:id', async(req, res) => {
-//     const id = req.params.id;
-//     try {
-//         await bucket.delete(new ObjectId(id));
-//         console.log('result', result)
-//         res.status(200).send({ message: "deleted"})
-//     } catch (error) {
-//         console.log('error', error);
-//         res.status(404).send({ message: "id " + id + " does not exist" });
-//     }
-// });
+
 
 // DELETE one post via id
 router.delete('/:id', async(req, res) => {

@@ -6,13 +6,7 @@ body{
   padding-top: 56px;
 }
 
-/* app{
-  background-color: #32273c;
-  background-image: url(../images/pexelsback.jpg);
-  background-position: center;
-  background-size:77cm
 
-} */
 main{
   padding-top: 1cm;
 }
@@ -30,21 +24,19 @@ main{
   text-align: left;
 }
 
-/* .text-light {
-  text-align: left;
-} */
+
 .drawer-option {
   padding: 16px;
 }
 
 .button-container {
-  display: flex; /* Verwende Flexbox für das Layout */
-  align-items: center; /* Zentriere die Elemente vertikal */
+  display: flex; 
+  align-items: center; 
 }
 
-/* Optional: Füge Platz zwischen den Elementen hinzu */
+
 .mdl-button {
-  margin-right: 10px; /* Zum Beispiel 10px Abstand zwischen dem Button und dem Div */
+  margin-right: 10px; 
 }
 
 #pick-image{
@@ -64,8 +56,7 @@ main{
 }
 
 #create-post {
-  margin: 0; /* Rand entfernen */
-  padding: 0; /* Padding entfernen oder anpassen, wie benötigt */
+  margin: 0; 
   z-index: 1001;
   position: fixed;
   width: 100%;
@@ -75,11 +66,9 @@ main{
   top: 56px;
   box-sizing: border-box;
   background-color: #32273c;
-  /* background-image: url(../images/pexelsback.jpg); */
   background-position: center;
   background-size:77cm;
   text-align: left;
-  /* visibility: hidden; */
 
   transform: translateY(100vH);
   transition: transform 0.3s;
@@ -130,7 +119,7 @@ main{
 }
 
 
-/* ab hier keine Ahnung */
+
 .row{
   margin: 0%;
   padding: 0%;
@@ -162,9 +151,9 @@ main{
 
   @media (max-width: 576px) {
     .card-img-top, .card {
-        max-width: 500px; /* Maximale Breite auf 350px begrenzen */
-        width: 80%; /* Bild auf 100% der verfügbaren Breite einstellen */
-        height: 10%; /* Automatische Anpassung der Höhe */
+        max-width: 500px; 
+        width: 80%; 
+        height: 10%; 
     }
 }
 

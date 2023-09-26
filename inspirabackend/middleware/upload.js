@@ -3,14 +3,9 @@ const {
     GridFsStorage 
 } = require('multer-gridfs-storage');
 const mongoose = require('mongoose');
-//const posts = require('../models/posts');
-// const mongoose = require('mongoose');
-require('dotenv').config();
-//const bucketName = 'posts';
 
-//const credentials = process.env.PATH_TO_PEM
-//const mongoose = require('mongoose');
-//const db = mongoose.connection;
+require('dotenv').config();
+
 
 
 
@@ -27,7 +22,7 @@ const storage = new GridFsStorage({
             return `${Date.now()}-aa-${file.originalname}`;
         }
 
-        //console.log('store', storage);
+       
         return {
 
             bucketName: 'posts',
@@ -37,16 +32,6 @@ const storage = new GridFsStorage({
     },
 });
 
-//console.log('store', storage)
-// storage.on('connection', (db) => {
-//     // Db is the database instance
-//     console.log('storage on')
-//     module.exports = multer({ storage });
-//   });
-  
-//   storage.on('connectionFailed', (err) => {
-//     // err is the error received from MongoDb
-//     console.log('failed');
-//   });
+
 
   module.exports = multer({ storage });

@@ -28,13 +28,13 @@ main{
 }
 
 .button-container {
-  display: flex; /* Verwende Flexbox für das Layout */
-  align-items: center; /* Zentriere die Elemente vertikal */
+  display: flex; 
+  align-items: center;
 }
 
-/* Optional: Füge Platz zwischen den Elementen hinzu */
+
 .mdl-button {
-  margin-right: 10px; /* Zum Beispiel 10px Abstand zwischen dem Button und dem Div */
+  margin-right: 10px; 
 }
 
 #pick-image{

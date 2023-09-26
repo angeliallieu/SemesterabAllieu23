@@ -1,11 +1,6 @@
 const express = require('express');
 const router = express.Router();
 const mongoose = require('mongoose');
-//const { database } = mongoose.connection;
-
-// Stelle die Verbindung zur MongoDB-Datenbank her
-//const connection = mongoose.connection;
-//mongoose.connect(process.env.DB_CONNECTION)
 
 const bucket = new mongoose.mongo.GridFSBucket(mongoose.connection, {
     bucketName: 'posts'

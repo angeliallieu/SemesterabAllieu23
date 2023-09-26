@@ -140,6 +140,8 @@ function openCreatePostModal() {
     }, 1);
     initializeMedia();
     initializeLocation();
+    
+    
 }
 
 function closeCreatePostModal() {
@@ -154,11 +156,12 @@ function closeCreatePostModal() {
     setTimeout( () => {
         createPostArea.style.transform = 'translateY(100vH)';
     }, 1);
+    // navigator.serviceWorker.ready.then(registration => {
+    //     registration.sync.register('sync-new-post'); // Hier wird das manuelle Sync-Ereignis 'sync-new-post' ausgelöst
+    // });
+    
+   
 }
-
-
-
-
 
 shareImageButton.addEventListener('click', openCreatePostModal);
 
@@ -203,7 +206,7 @@ function createCard(card) {
 
   
 
-  let networkDataReceived = false;  //?
+  let networkDataReceived;  //?
 
 
   fetch('http://localhost:4000/posts')
@@ -293,26 +296,25 @@ form.addEventListener('submit', event => {
                     notes: notesValue,
                     location: locationValue,
                     image_id: file      // file durch den Foto-Button belegt
-    
                 };
                 console.log('Daten werden wurden gepostet')
                 writeData('sync-posts', post)
                 .then( () => {
-                    console.log('Daten werden syncronisiert')
+                    console.log('Daten werden synchronisiert')
                     return sw.sync.register('sync-new-post');
                 })
                 .then( () => {
-                    let snackbarContainer = new MaterialSnackbar(document.querySelector('#confirmation-toast'));
-                    let data = { message: 'Eingaben zum Synchronisieren gespeichert!', timeout: 2000};
-                    snackbarContainer.showSnackbar(data);
-                });
+                    alert('Eingaben zum Synchronisieren gespeichert')
+                //     let snackbarContainer = new MaterialSnackbar(document.querySelector('#confirmation-toast'));
+                //     let data = { message: 'Eingaben zum Synchronisieren gespeichert!', timeout: 2000};
+                //     snackbarContainer.showSnackbar(data);
+                 });
             });
     } else {
-            sendDataToBackend();
+        console.log('Background sync not supported');
+        sendDataToBackend();
     }
 });
-
-
 
 
 imagePicker.addEventListener('change', event => {
@@ -341,5 +343,3 @@ captureButton.addEventListener('click', event => {
         console.log('file', file)
     })
 });
-
-
